@@ -21,12 +21,14 @@
     <h2>Guestbook with PyScript</h2>
     <py-contactlist id="guestBook"></py-contactlist>
     <py-inputbox id ="new-entry">
-      def enrty(e):
-        if(true):
-          add_contact
+      def on_keypress(e):
+        if(e.code == "Enter"):
+          add_contact()
     </py-inputbox>
     <py-script>
       def add_contact():
-        guest = {"content": new.entry.value, "created_at": dt.now()}
+        guest = {"content": new_entry.value}
+        guestBook.add(guest)
+        new.entry.clear()
   </body>
 </html>
